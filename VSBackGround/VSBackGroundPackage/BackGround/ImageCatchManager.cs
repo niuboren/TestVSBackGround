@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 
-namespace VSBackGround
+namespace NBR.VSBackGroundPackage
 {
     public class ImageCatchManager
     {
         private static ImageCatchManager _instance;
+
         public static ImageCatchManager Instance
         {
             get
@@ -74,12 +72,12 @@ namespace VSBackGround
 
         private string GetDirPath()
         {
-            return Settings.Default.BackGroundPath;
+            return VSBackGroundSetting.Default.BackGroundPath;
         }
 
         public void SetDirPath(string p)
         {
-            Settings.Default.BackGroundPath = p;
+            VSBackGroundSetting.Default.BackGroundPath = p;
         }
     }
 }

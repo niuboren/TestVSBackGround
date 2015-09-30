@@ -1,18 +1,14 @@
-﻿using System.Windows.Controls;
-using System.Windows.Media;
+﻿using EnvDTE;
 using Microsoft.VisualStudio.Text.Editor;
-using EnvDTE;
-using System.Windows.Media.Imaging;
-using System;
-using System.IO;
-using System.Collections.Generic;
+using System.Windows.Controls;
+using System.Windows.Media;
 
-namespace VSBackGround
+namespace NBR.VSBackGroundPackage
 {
     /// <summary>
     /// Adornment class that draws a square box in the top right hand corner of the viewport
     /// </summary>
-    class VSBackGround
+    internal class VSBackGround
     {
         private ImageBrush smImageBrush = new ImageBrush();
 
@@ -64,7 +60,7 @@ namespace VSBackGround
         {
             mImageSurface = new Canvas();
             RenderOptions.SetBitmapScalingMode(mImageSurface, BitmapScalingMode.Linear); // better look
-            
+
             RefreshBackgroundBrush();
 
             mImageSurface.Background = smImageBrush;
@@ -83,7 +79,6 @@ namespace VSBackGround
 
             mImageSurface.Width = _view.ViewportWidth;
             mImageSurface.Height = _view.ViewportHeight;
-
         }
     }
 }

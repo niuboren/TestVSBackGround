@@ -1,12 +1,13 @@
-﻿using System.ComponentModel.Composition;
+﻿using EnvDTE;
+using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Text.Editor;
 using Microsoft.VisualStudio.Utilities;
-using EnvDTE;
-using Microsoft.VisualStudio.Shell;
+using System.ComponentModel.Composition;
 
-namespace VSBackGround
+namespace NBR.VSBackGroundPackage
 {
     #region Adornment Factory
+
     /// <summary>
     /// Establishes an <see cref="IAdornmentLayer"/> to place the adornment on and exports the <see cref="IWpfTextViewCreationListener"/>
     /// that instantiates the adornment on the event of a <see cref="IWpfTextView"/>'s creation
@@ -18,8 +19,9 @@ namespace VSBackGround
     {
         [Import]
         internal SVsServiceProvider ServiceProvider = null;   //<-- 通过这句代码，就可以获取 Visual Studio 的产物
+
         /// <summary>
-        /// Defines the adornment layer for the scarlet adornment. This layer is ordered 
+        /// Defines the adornment layer for the scarlet adornment. This layer is ordered
         /// after the selection layer in the Z-order
         /// </summary>
         [Export(typeof(AdornmentLayerDefinition))]
@@ -38,5 +40,6 @@ namespace VSBackGround
             new VSBackGround(textView, dte);
         }
     }
-    #endregion //Adornment Factory
+
+    #endregion Adornment Factory
 }
